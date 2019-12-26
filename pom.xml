@@ -11,6 +11,17 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.3</version>
+				<extensions>true</extensions>
+				<configuration>
+				    <serverId>nexus</serverId>
+				    <nexusUrl>http://127.0.0.1:8081</nexusUrl>
+				</configuration>
+			</plugin>
+
+			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>8.1.5.v20120716</version>
@@ -26,5 +37,11 @@
 		</plugins>
 		<finalName>${project.name}##${project.version}.${BUILD_NUMBER}</finalName>
 	</build>
+<distributionManagement>
+      <snapshotRepository>
+        <id>nexus</id>
+        <url>http://127.0.0.1:8081/repository/maven-releases/</url>
+      </snapshotRepository>
+</distributionManagement>
 
 </project>

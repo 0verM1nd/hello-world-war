@@ -11,14 +11,23 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>1.6.3</version>
-				<extensions>true</extensions>
-				<configuration>
-				    <serverId>nexus</serverId>
-				    <nexusUrl>http://127.0.0.1:8081</nexusUrl>
-				</configuration>
+				   <groupId>org.sonatype.plugins</groupId>
+				   <artifactId>nexus-staging-maven-plugin</artifactId>
+				   <version>1.5.1</version>
+				   <executions>
+				      <execution>
+					 <id>default-deploy</id>
+					 <phase>deploy</phase>
+					 <goals>
+					    <goal>deploy</goal>
+					 </goals>
+				      </execution>
+				   </executions>
+				   <configuration>
+				      <serverId>nexus</serverId>
+				      <nexusUrl>http://localhost:8081</nexusUrl>
+				      <skipStaging>true</skipStaging>
+				   </configuration>
 			</plugin>
 
 			<plugin>
